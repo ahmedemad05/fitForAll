@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="light dark" />
 
-    <!-- SEO -->
-    <title>FIT FOR ALL | AI-Powered Health &amp; Fitness</title>
-    <meta name="description" content="FIT FOR ALL helps you make smarter decisions about exercise, food, and shopping with AI-powered guidance personalised to your goals." />
-    <meta name="robots" content="index, follow" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="FIT FOR ALL – AI Health &amp; Fitness" />
-    <meta property="og:description" content="AI-powered food guidance, gym coaching, and product scanning tailored to your fitness goals." />
-    <meta property="og:type" content="website" />
+  <!-- SEO -->
+  <title>FIT FOR ALL | AI-Powered Health &amp; Fitness</title>
+  <meta name="description"
+    content="FIT FOR ALL helps you make smarter decisions about exercise, food, and shopping with AI-powered guidance personalised to your goals." />
+  <meta name="robots" content="index, follow" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Open Graph -->
+  <meta property="og:title" content="FIT FOR ALL – AI Health &amp; Fitness" />
+  <meta property="og:description"
+    content="AI-powered food guidance, gym coaching, and product scanning tailored to your fitness goals." />
+  <meta property="og:type" content="website" />
 
-    <!--
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!--
       Anti-flash theme script: runs synchronously before React mounts.
       Reads the user's saved preference (or prefers-color-scheme) and sets
       the data-theme attribute on <html> so the correct CSS tokens apply
       immediately — preventing a flash of the wrong theme.
     -->
-    <script>
-      (function () {
-        try {
-          var saved = localStorage.getItem('fit_theme');
-          if (saved === 'dark' || saved === 'light') {
-            document.documentElement.setAttribute('data-theme', saved);
-          } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-          }
-        } catch (e) {}
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('fit_theme');
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) { }
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="%BASE_URL%src/main.jsx"></script>
+</body>
+
 </html>

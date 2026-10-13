@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var base = '/fitForAll/';
+        var path = window.location.pathname;
+
+        if (path.startsWith(base)) {
+          var route = path.slice(base.length);
+          var query = window.location.search;
+          var hash = window.location.hash;
+
+          var redirect =
+            base +
+            '?/' +
+            route +
+            (query ? '&' + query.slice(1) : '') +
+            hash;
+
+          window.location.replace(redirect);
+        } else {
+          window.location.replace(base);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>
