@@ -9,6 +9,9 @@ export default function LandingPage() {
   const statCalorieRef = useRef(null);
   const statProteinRef = useRef(null);
 
+  // Base path for images on local development and GitHub Pages
+  const imageBase = `${import.meta.env.BASE_URL}images/`;
+
   useEffect(() => {
     // 1. Reveal on scroll observer
     const revealElements = document.querySelectorAll(
@@ -115,7 +118,7 @@ export default function LandingPage() {
       <main>
         <section className="hero">
           <div className="hero-background">
-            <img src="/images/hero4.jpg" alt="Fitness" />
+            <img src={`${imageBase}hero4.jpg`} alt="Fitness" />
           </div>
 
           <div className="hero-overlay"></div>
@@ -221,7 +224,7 @@ export default function LandingPage() {
               aria-label="Open AI Food Guide"
             >
               <div className="landing-feature-icon">
-                <img src="/images/dish.png" alt="AI Food Guide" />
+                <img src={`${imageBase}dish.png`} alt="AI Food Guide" />
               </div>
               <h3>AI Food Guide</h3>
               <p>
@@ -236,7 +239,7 @@ export default function LandingPage() {
               aria-label="Open AI Food Scanner"
             >
               <div className="landing-feature-icon">
-                <img src="/images/plate2.png" alt="Food Scanner" />
+                <img src={`${imageBase}plate2.png`} alt="Food Scanner" />
               </div>
               <h3>AI Food Scanner</h3>
               <p>
@@ -251,7 +254,7 @@ export default function LandingPage() {
               aria-label="Open AI Product Scanner"
             >
               <div className="landing-feature-icon">
-                <img src="/images/cart.png" alt="Product Scanner" />
+                <img src={`${imageBase}cart.png`} alt="Product Scanner" />
               </div>
               <h3>Smart Product Scanner</h3>
               <p>
