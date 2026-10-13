@@ -7,36 +7,38 @@ import { ToastProvider } from './context/ToastContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import ProtectedRoute from './components/ProtectedRoute';
 
-// ─── Eager-loaded pages (small / critical path) ─────────────────────────────
+// Eager-loaded pages (small / critical path)
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import NotFoundPage from './pages/NotFoundPage';
 
-// ─── Lazy-loaded pages (heavier / behind auth) ─────────────────────────────
-const CoachesPage         = lazy(() => import('./pages/CoachesPage'));
-const CoachProfilePage    = lazy(() => import('./pages/CoachProfilePage'));
-const FoodGuidePage       = lazy(() => import('./pages/FoodGuidePage'));
-const GymCoachPage        = lazy(() => import('./pages/GymCoachPage'));
-const ProductScannerPage  = lazy(() => import('./pages/ProductScannerPage'));
-const ProfilePage         = lazy(() => import('./pages/ProfilePage'));
-const PersonalDataPage    = lazy(() => import('./pages/PersonalDataPage'));
-const UpdateProfilePage   = lazy(() => import('./pages/UpdateProfilePage'));
-const AdminDashboard      = lazy(() => import('./pages/AdminDashboard'));
+// Lazy-loaded pages (heavier / behind auth)
+const CoachesPage = lazy(() => import('./pages/CoachesPage'));
+const CoachProfilePage = lazy(() => import('./pages/CoachProfilePage'));
+const FoodGuidePage = lazy(() => import('./pages/FoodGuidePage'));
+const GymCoachPage = lazy(() => import('./pages/GymCoachPage'));
+const ProductScannerPage = lazy(() => import('./pages/ProductScannerPage'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
+const PersonalDataPage = lazy(() => import('./pages/PersonalDataPage'));
+const UpdateProfilePage = lazy(() => import('./pages/UpdateProfilePage'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 const MachineTutorialPage = lazy(() => import('./pages/MachineTutorialPage'));
 
-// ─── Loading fallback ────────────────────────────────────────────────────────
+// Loading fallback
 function PageLoader() {
   return (
-    <div style={{
-      minHeight: '60vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'var(--text-2)',
-      fontSize: '15px',
-      fontWeight: 600,
-    }}>
+    <div
+      style={{
+        minHeight: '60vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'var(--text-2)',
+        fontSize: '15px',
+        fontWeight: 600,
+      }}
+    >
       Loading…
     </div>
   );
@@ -45,7 +47,7 @@ function PageLoader() {
 export default function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <ThemeProvider>
           <AuthProvider>
             <ToastProvider>
@@ -67,23 +69,51 @@ export default function App() {
                     <Route path="/product-scanner" element={<ProductScannerPage />} />
 
                     {/* User dashboard (protected) */}
-                    <Route path="/profile" element={
-                      <ProtectedRoute><ProfilePage /></ProtectedRoute>
-                    } />
-                    <Route path="/personal-data" element={
-                      <ProtectedRoute><PersonalDataPage /></ProtectedRoute>
-                    } />
-                    <Route path="/update-profile" element={
-                      <ProtectedRoute><UpdateProfilePage /></ProtectedRoute>
-                    } />
-                    <Route path="/dashboard/machine-tutorial" element={
-                      <ProtectedRoute><MachineTutorialPage /></ProtectedRoute>
-                    } />
+                    <Route
+                      path="/profile"
+                      element={
+                        <ProtectedRoute>
+                          <ProfilePage />
+                        </ProtectedRoute>
+                      }
+                    />
+
+                    <Route
+                      path="/personal-data"
+                      element={
+                        <ProtectedRoute>
+                          <PersonalDataPage />
+                        </ProtectedRoute>
+                      }
+                    />
+
+                    <Route
+                      path="/update-profile"
+                      element={
+                        <ProtectedRoute>
+                          <UpdateProfilePage />
+                        </ProtectedRoute>
+                      }
+                    />
+
+                    <Route
+                      path="/dashboard/machine-tutorial"
+                      element={
+                        <ProtectedRoute>
+                          <MachineTutorialPage />
+                        </ProtectedRoute>
+                      }
+                    />
 
                     {/* Admin dashboard (protected + admin only) */}
-                    <Route path="/admin" element={
-                      <ProtectedRoute requireAdmin><AdminDashboard /></ProtectedRoute>
-                    } />
+                    <Route
+                      path="/admin"
+                      element={
+                        <ProtectedRoute requireAdmin>
+                          <AdminDashboard />
+                        </ProtectedRoute>
+                      }
+                    />
 
                     {/* 404 */}
                     <Route path="*" element={<NotFoundPage />} />
