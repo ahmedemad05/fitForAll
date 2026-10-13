@@ -1,0 +1,453 @@
+/* ── Machine Tutorial Page ────────────────────────────────────────────────── */
+.machine-tutorial-page {
+  background: var(--bg);
+  min-height: calc(100vh - 72px);
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+.mt-header {
+  background: linear-gradient(135deg, var(--dark) 0%, #1a0f08 100%);
+  padding: 80px 7% 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mt-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 50%, rgba(201, 92, 44, 0.15) 0%, transparent 70%);
+}
+
+.mt-header-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.mt-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--primary-soft);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.mt-header h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.mt-header h1 span {
+  color: var(--primary-soft);
+}
+
+.mt-header p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+
+.mt-coming-badge {
+  display: inline-block;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius);
+  color: var(--warning);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+}
+
+/* ── Upload section ──────────────────────────────────────────────────────── */
+.mt-upload-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.mt-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: 0 4px 24px var(--shadow);
+}
+
+.mt-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-1);
+  margin-bottom: 8px;
+}
+
+.mt-card-desc {
+  font-size: 14px;
+  color: var(--text-2);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* ── Dropzone ─────────────────────────────────────────────────────────────── */
+.mt-dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  color: var(--text-2);
+}
+
+.mt-dropzone:hover,
+.mt-dropzone:focus-visible,
+.mt-dropzone.drag-over {
+  border-color: var(--primary);
+  background: rgba(201, 92, 44, 0.04);
+  outline: none;
+}
+
+.mt-dropzone-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.mt-dropzone p {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.mt-upload-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.mt-file-hint {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+.mt-btn-primary {
+  padding: 11px 22px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.mt-btn-primary:hover {
+  background: var(--primary-strong);
+}
+
+.mt-btn-secondary {
+  padding: 11px 22px;
+  background: var(--bg-soft);
+  color: var(--text-1);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.mt-btn-secondary:hover {
+  background: var(--surface-3);
+  border-color: var(--text-3);
+}
+
+.mt-btn-danger {
+  padding: 11px 22px;
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border: 1.5px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mt-btn-danger:hover {
+  background: rgba(239, 68, 68, 0.18);
+}
+
+/* ── Preview ──────────────────────────────────────────────────────────────── */
+.mt-preview-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mt-preview-image-wrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  max-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-soft);
+}
+
+.mt-preview-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+.mt-preview-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mt-preview-info p {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.mt-preview-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.mt-coming-note {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius);
+  padding: 16px;
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+/* ── File error ───────────────────────────────────────────────────────────── */
+.mt-file-error {
+  margin-top: 12px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--error);
+  font-weight: 500;
+}
+
+/* ── 3D Viewer placeholder ────────────────────────────────────────────────── */
+.mt-viewer-placeholder {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-soft);
+}
+
+.mt-viewer-inner {
+  text-align: center;
+  color: var(--text-2);
+  padding: 24px;
+}
+
+.mt-viewer-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.mt-viewer-inner p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.mt-viewer-badge {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 20px;
+  padding: 3px 12px;
+}
+
+/* ── How it works ────────────────────────────────────────────────────────── */
+.mt-how-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 80px 7%;
+}
+
+.mt-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.mt-section-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-1);
+  margin-top: 10px;
+}
+
+.mt-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.mt-step-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  position: relative;
+}
+
+.mt-step-number {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.mt-step-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.mt-step-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 8px;
+}
+
+.mt-step-card p {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+/* ── Notify section ──────────────────────────────────────────────────────── */
+.mt-notify-section {
+  padding: 60px 7%;
+  background: var(--bg);
+}
+
+.mt-notify-card {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mt-notify-card h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-1);
+  margin-bottom: 10px;
+}
+
+.mt-notify-card > p {
+  font-size: 15px;
+  color: var(--text-2);
+  margin-bottom: 24px;
+}
+
+.mt-notify-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.mt-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-1);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.mt-toggle-btn.active {
+  border-color: var(--primary);
+  background: rgba(201, 92, 44, 0.08);
+  color: var(--primary);
+}
+
+.mt-toggle-track {
+  width: 42px;
+  height: 24px;
+  background: var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 3px;
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+
+.mt-toggle-btn.active .mt-toggle-track {
+  background: var(--primary);
+  justify-content: flex-end;
+}
+
+.mt-toggle-thumb {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.mt-notify-saved {
+  font-size: 13px;
+  color: var(--success);
+  font-weight: 500;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .mt-header h1 {
+    font-size: 32px;
+  }
+  .mt-card {
+    padding: 24px 20px;
+  }
+  .mt-how-section,
+  .mt-notify-section {
+    padding: 48px 5%;
+  }
+}
